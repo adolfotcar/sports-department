@@ -1,0 +1,22 @@
+<app-nav-menu></app-nav-menu>
+<div class="container">
+  <div class="row">
+    <a class="btn btn-primary" [routerLink]="['/neighborhoods/create']"><fa-icon [icon]="faPlus"></fa-icon> Add</a>
+  </div>
+  <div class="row">
+    <table class="table table-striped">
+      <tr>
+        <td>Id</td>
+        <td>Neighborhood</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr *ngFor="let d of data">
+        <td>{{d.neighborhoodId}}</td>
+        <td>{{d.name}}</td>
+        <td><a [routerLink]="['/neighborhoods/'+d.neighborhoodId]" class="btn btn-warning"><fa-icon [icon]="faEdit"></fa-icon> Edit</a></td>
+        <td><a (click)="remove(d.neighborhoodId, d.name)" class="btn btn-danger"><fa-icon [icon]="faTrash"></fa-icon> Remove</a></td>
+      </tr>
+    </table>
+  </div>
+</div>

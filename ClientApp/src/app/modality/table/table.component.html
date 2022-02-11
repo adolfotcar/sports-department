@@ -1,0 +1,24 @@
+<app-nav-menu></app-nav-menu>
+<div class="container">
+  <div class="row">
+    <a class="btn btn-primary" [routerLink]="['/modalities/create']"><fa-icon [icon]="faPlus"></fa-icon> Add</a>
+  </div>
+  <div class="row">
+    <table class="table table-striped">
+      <tr>
+        <td>Id</td>
+        <td>Modality</td>
+        <td>Teacher</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr *ngFor="let d of data">
+        <td>{{d.modalityId}}</td>
+        <td>{{d.name}}</td>
+        <td>{{d.teacher.fullName}}</td>
+        <td><a [routerLink]="['/modalities/'+d.modalityId]" class="btn btn-warning"><fa-icon [icon]="faEdit"></fa-icon> Edit</a></td>
+        <td><a (click)="remove(d.modalityId, d.name)" class="btn btn-danger"><fa-icon [icon]="faTrash"></fa-icon> Remove</a></td>
+      </tr>
+    </table>
+  </div>
+</div>

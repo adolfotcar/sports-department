@@ -1,0 +1,26 @@
+<app-nav-menu></app-nav-menu>
+<div class="container">
+  <div class="row">
+    <a class="btn btn-primary" [routerLink]="['/students/create']"><fa-icon [icon]="faPlus"></fa-icon> Add</a>
+  </div>
+  <div class="row">
+    <table class="table table-striped">
+      <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Modality</td>
+        <td>Neighborhood</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr *ngFor="let d of data">
+        <td>{{d.studentId}}</td>
+        <td>{{d.fullName}}</td>
+        <td>{{d.modality.name}}</td>
+        <td>{{d.neighborhood.name}}</td>
+        <td><a [routerLink]="['/students/'+d.studentId]" class="btn btn-warning"><fa-icon [icon]="faEdit"></fa-icon> Edit</a></td>
+        <td><a (click)="remove(d.studentId, d.fullName)" class="btn btn-danger"><fa-icon [icon]="faTrash"></fa-icon> Remove</a></td>
+      </tr>
+    </table>
+  </div>
+</div>

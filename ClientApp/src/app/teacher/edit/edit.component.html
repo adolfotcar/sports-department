@@ -1,0 +1,47 @@
+<app-nav-menu></app-nav-menu>
+<div class="container">
+
+  <form [formGroup]="MyForm" (ngSubmit)="this[EventValue]()">
+
+    <h3>Edit Teacher</h3>
+    <div class="row">
+
+      <table class="table">
+        <tr>
+          <td>Nome</td>
+          <td>
+            <input type="hidden" formControlName="ID">
+            <input type="text" formControlName="Name">
+            <div *ngIf="submitted && MyForm.controls.Name.errors" class="text-danger">
+              <div *ngIf="MyForm.controls.Name.errors.required">Name is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Sobrenome</td>
+          <td>
+            <input type="text" formControlName="Surname">
+            <div *ngIf="submitted && MyForm.controls.Surname.errors" class="text-danger">
+              <div *ngIf="MyForm.controls.Surname.errors.required">Surname is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Telefone</td>
+          <td>
+            <input type="text" formControlName="PhoneNumber">
+            <div *ngIf="submitted && MyForm.controls.PhoneNumber.errors" class="text-danger">
+              <div *ngIf="MyForm.controls.PhoneNumber.errors.required">Phone is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+</div>
+

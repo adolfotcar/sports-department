@@ -1,0 +1,61 @@
+<app-nav-menu></app-nav-menu>
+<div class="container">
+
+  <form [formGroup]="MyForm" (ngSubmit)="this[EventValue]()">
+
+    <h3>Edit Student</h3>
+    <div class="row">
+
+      <table class="table">
+        <tr>
+          <td>Nome</td>
+          <td>
+            <input type="hidden" formControlName="ID">
+            <input type="text" formControlName="Name">
+            <div *ngIf="submitted && MyForm.controls.Name.errors" class="text-danger">
+              <div *ngIf="MyForm.controls.Name.errors.required">Name is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+        <tr>
+          <td>Surname</td>
+          <td>
+            <input type="text" formControlName="Surname">
+            <div *ngIf="submitted && MyForm.controls.Surname.errors" class="text-danger">
+              <div *ngIf="MyForm.controls.Surname.errors.required">Surname is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Modality</td>
+          <td>
+            <select formControlName="ModalityId">
+              <option *ngFor="let m of modalities" [ngValue]="m.modalityId">{{m.name}}</option>
+            </select>
+            <div *ngIf="submitted && MyForm.controls.ModalityId.errors" class="text-danger">
+              <div *ngIf="MyForm.controls.ModalityId.errors.required">Modality is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Neighborhood</td>
+          <td>
+            <select formControlName="NeighborhoodId">
+              <option *ngFor="let n of neighborhoods" [ngValue]="n.neighborhoodId">{{n.name}}</option>
+            </select>
+            <div *ngIf="submitted && MyForm.controls.NeighborhoodId.errors" class="text-danger">
+              <div *ngIf="MyForm.controls.NeighborhoodId.errors.required">Neighborhood is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+</div>
+
